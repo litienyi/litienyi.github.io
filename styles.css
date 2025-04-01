@@ -1,0 +1,78 @@
+/* Custom Styles for Personal Website */
+html, body {
+    background-color: #ffffff;
+    font-family: 'Noto Sans', serif;
+    font-weight: 400;
+    color: #000000;
+    height: 100%;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+
+/* Make the container take up 100% of the screen height */
+main {
+    flex-grow: 1; /* Allow main content to grow and fill space */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+/* Navbar Styles */
+.navbar-toggler-icon {
+    color: #000;
+}
+
+.navbar {
+    /* background-color: #AA251C !important; */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 20px 0; /* Add some padding */
+}
+
+.navbar-brand {
+    color: #000000 !important;
+    font-weight: 100;
+    font-size: 1em;
+    text-align: center; /* Ensure text is centered */
+    width: 100%; /* Take full width to center properly */
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column; /* Stack nav links vertically */
+    align-items: center; /* Center nav links horizontally */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Take full width to center properly */
+}
+
+.nav-item {
+    margin: 5px 0; /* Add spacing between nav items */
+}
+
+.nav-link {
+    color: #000000 !important;
+    font-size: 1em;
+    padding: 5px 10px; /* Add padding to links */
+}
+
+.nav-link:hover {
+    color: #cecece !important;
+    /* background-color: rgba(255, 255, 255, 0.1); /* Add hover effect */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Footer Styles */
+footer {
+    /* background-color: #AA251C; */
+    color: #000;
+    font-weight: 100;
+    font-size: 1em;
+    padding: 20px 0;
+    text-align: center;
+}

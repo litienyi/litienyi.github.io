@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Li Tien Yi - Personal Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- SheetJS version 0.20.3 -->
+    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <!-- Signma.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/2.4.0/sigma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/graphology/0.25.4/graphology.umd.min.js"></script>
+</head>
+<body>
+    <div id="container" style="width: 800px; height: 600px; background: rgb(201, 116, 116)"></div>
+    <script>
+    // read excel
+    const workbook = XLSX.read("sampledata.xlsx");
+    console.log(workbook)
+    const worksheet = workbook.Sheets["Sheet1"];
+    console.log(worksheet)
+    const data = XLSX.utils.sheet_to_json(worksheet, {raw: true,});
+    console.log(data)
+
+    // Create a graphology graph
+    const graph = new graphology.Graph();
+    
+    graph.addNode("1", { label: "Node 1", x: 0, y: 0, size: 10, color: "blue" });
+    graph.addNode("2", { label: "Node 2", x: 1, y: 1, size: 20, color: "red" });
+    graph.addEdge("1", "2", { size: 5, color: "purple" });
+
+    // Instantiate sigma.js and render the graph
+    const sigmaInstance = new Sigma(graph, document.getElementById("container"));
+
+
+    </script>
+</body>
+</html>
