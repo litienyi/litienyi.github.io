@@ -11,13 +11,16 @@
             box-sizing: border-box;
         }
         div {
-            /* border: 1px solid black; /**/
+            /*border: 1px solid black; 
+            /* padding: 2px; 
+            margin: 2px; */
         }
+        p {/*border: 1px solid black;*/ }
         body {
             font-family: "Georgia";
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            flex: 1;
             /* border: 1px solid black;  /* Border around body */
         }
         .navbar {
@@ -26,7 +29,7 @@
             position: relative;
             border-bottom: 1px solid black;  /* Border around navbar */
             /* border: 1px solid black;  /* Border around navbar */
-            padding-bottom: .25em;
+            padding: .25em;
         }
         /*.navbar::after {
             content: "";
@@ -44,18 +47,18 @@
             display: flex;
             flex-direction: row;
             text-align: center;
+            align-items: center;
             /* border: 1px solid black;/*  Border around nav items */
         }
         .container {
             display: flex;
-            flex: 1;
-          padding: .25em;
+            height: 99vh;
+            margin: .25em;
             justify-content: top;
             align-items: top;
             /* border: 1px solid black;  /* Border around container */
         }
         .section {
-            height: 1;
             display: flex;
             flex-direction: column;
             justify-content: top;
@@ -63,9 +66,14 @@
             font-size: 12px;
             text-align: left;
             /* border: 1px solid black; /* Border around sections */
+            
+        }
+        .scrollable {
+            flex: 1;
+            overflow-y: scroll;
         }
         p {
-            padding-top: .25em;
+            padding: .25em;
             text-align: justify;
         }
 
@@ -87,12 +95,15 @@
             display: flex;
             flex-direction: column;
             height: 1.25em;
+            margin-right: .25em;
             align-items: stretch;
             justify-content: space-evenly;
         }
         .menu {
-            display: none;
-            padding-left: .25em;
+            /*display: none;
+            padding-left: 2em;*/
+            opacity: 0;
+            transition: 0.3s;
         }
 
     </style>
@@ -123,6 +134,7 @@
             <div class="navbar">
                 <div class="nav-item">Li Tien Yi</div>
             </div>
+            <div class="scrollable">
             <p>Tien Yi is a SMArchS student in the History, Theory, Criticism of Architecture and Art program at MIT. 
 
                 His Master's thesis is a pioneering study of diary-writing in Republican-era China (1918–1949), as it intersected with the histories of the Baihuawen Movement, education reforms, and self-expression in China, as well as provenance and archival theory. The thesis argues that diaries, an increasingly popular but inadequately understood genre, would be best understood as a pedagogical tool for cultivating citizenship in Republican China. It was theorized as a confessional kind of writing by the literary avant-garde, then adopted by educators as a way to cultivate individual consciousness, independent thinking, and personal voices as part of a broader project to cultivate a civically active citizenry. As diary-writing became taught in schools across the nascent Republic, textbook writers engaged in a cacophonous debate regarding the subject matter, style, and structure appropriate to this genre of writing, and diaries became highly stylized notwithstanding its supposed emancipatory effects. It concludes that we must not think of diaries as unmediated windows into Chinese history at the grassroots but reflections of an emergent writing public grappling with the changing regimes of attention, lexicons, and literary conventions prescribed by its political and cultural elites. In doing so, this thesis makes a fundamentally methodological contribution to how we understand diaries as a historical source, while also adding to the mosaic of the histories of literary and educational reforms from the late Qing through early twentieth century.<br><br>
@@ -130,7 +142,8 @@
                 More broadly, Tien Yi is training as a historian of modern China. His current interests are in the histories of technology, design, and engineering, whence it bleeds into the history of knowledge and information (how technical knowledge was valorized, represented, and transferred) and history of the political economy (how technological change paralleled changes in supply networks, economic sectors, and political-economic relationships). His previous work has also engaged with Sino-French-British artistic exchange from the late eighteenth through early twentieth centuries, architectural modernity in Republican China, and information management in the late Ming and colonial Hong Kong.<br><br>
                 
                 Tien Yi's work has been generously supported by awards from MIT, Yale University, Northeastern University, and the Society of Architectural Historians. He has presented at MIT, Harvard, Columbia, Northeastern, and Cardiff Universities.</p>
-        </div>
+            </div>
+            </div>
         <div class="section" style="flex: 2;">
             <div class="navbar">
                 <div class="hamburger" onclick="clickmenu(this)">
@@ -159,10 +172,10 @@
     function clickmenu(x) {
       x.classList.toggle("change");
       const menu = document.querySelector(".menu");
-      if (menu.style.display === "flex") {
-            menu.style.display = "none";
+      if (menu.style.opacity == 0) {
+            menu.style.opacity = 100;
         } else {
-            menu.style.display = "flex";
+            menu.style.opacity = 0;
         }
     }
     </script>
